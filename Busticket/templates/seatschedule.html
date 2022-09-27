@@ -1,0 +1,112 @@
+{% extends 'adminhome.html' %}
+
+{% block content %}
+
+
+<section id="main-content" style="min-height: 93vh">
+    <section class="wrapper">
+        <h3>Scheduling Bus </h3>
+        
+        <!-- BASIC FORM ELELEMNTS -->
+        <div class="row mt"> 
+            <div class="col-lg-3">
+            <div class="form-panel">
+                <form class="form-horizontal style-form" method="post" name="myForm" enctype="multipart/form-data" >
+                 {% csrf_token %}
+
+                <div class="form-group" >
+                    <label class="col-sm-12 control-label">Schedule Date</label>
+                    <div class="col-sm-12">
+                        <input type="date" name="sdate" class="form-control" required>
+
+                    </div>
+                </div>
+                <div class="form-group" >
+                    <label class="col-sm-12 control-label">Bus</label>
+                    <div class="col-sm-12">
+                        <select name="rbus" id="" class="form-control"  required>
+                            <option >Bus</option>
+                            {% for d in bus %}
+                            <option value="{{d.bsc_id}}">{{d.bus.bno}}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group" >
+                    <label class="col-sm-12 control-label">Available Seat</label>
+                    <div class="col-sm-12">
+                        <input type="number" name="st" class="form-control" required>
+                    </div>
+                </div>
+
+                <div class="form-group" >
+                    <div class="col-sm-12">
+                        <button  type="submit" name="submit" class="btn btn-success">Submit</button>
+                    </div>
+                </div>
+                   </form>
+            </div>
+            </div>	
+            
+            
+
+
+        <div class="col-lg-9">
+                            <div class="content-panel" style="padding: 10px">
+                     
+                    <section id="unseen">
+                      <table class="table table-bordered table-striped table-condensed" style="width:100%">
+                        <thead>
+                        <tr>
+                        <th>Sl:No</th>
+                        <th>Bus</th>
+                        <th>From</th>
+                        <th>Departure</th>
+                        <th>To</th>
+                        <th>Arrival</th>
+                        <th>Schedule Date</th>
+                        <th>Bus Type</th>
+                        <th>Available Seat</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                    
+                        {% for d in data %}
+                        <tr>
+                            <td>{{forloop.counter}}</td>
+                            <td>{{d.bus_schedule.bus.bno}}</td>
+                            <td>{{d.bus_schedule.route.fromlocation}}</td>
+                            <td>{{d.bus_schedule.deptime}}</td>
+                            <td>{{d.bus_schedule.route.tolocation}}</td>
+                            <td>{{d.bus_schedule.arrivaltime}}</td>
+                            <td>{{d.schedule_date}}</td>
+                            <td>{{d.bus_schedule.bus.btype}}</td>
+                            <td>{{d.available_seat}}</td>
+                             <td><form action="{% url 'deletelocation' %}" method="post">
+                                {% csrf_token %}
+                                <input type="hidden" name="seatid" value="{{d.seatid}}">
+                                <button type="submit" class="btn btn-success">Delete</button>
+                             </form></td>
+                        </tr>
+                        {% endfor %}						
+                      </tbody>
+                    </table>
+                    </section>
+            </div>
+
+         </div>			 
+
+        </div>
+    </section>
+</section>
+
+
+
+
+{% endblock content %}
+
+
+
+
+
+

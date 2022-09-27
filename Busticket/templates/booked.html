@@ -1,0 +1,75 @@
+<section id="main-content" >
+    <section class="wrapper">
+        
+        <!-- BASIC FORM ELELEMNTS -->
+        <div class="row mt"> 
+            <div class="col-lg-12">
+                <div class="content-panel" style="padding: 10px">                    
+                    <section id="unseen">
+                        <table class="table  table-condensed" >
+                            <tr>
+                                <th>Name</th>
+                                <td>{{udata.fname}}</td>
+                                <th></th>
+                            </tr>
+                            <tr>
+                                <th>Bus No</th>
+                                <th>From</th>
+                                <th>To</th>
+                            </tr>
+                            <tr>
+                                <td>{{datas.bus_schedule.bus.bno}}</td>
+                                <td>{{datas.bus_schedule.route.fromlocation}}</td>
+                                <td>{{datas.bus_schedule.route.tolocation}}</td>
+                            </tr>
+                            <tr>
+                                <th>Bus Type</th>
+                                <th>Departure</th>
+                                <th>Arrival</th>
+                            </tr>
+                            <tr>
+                                <td>{{datas.bus_schedule.bus.btype}}</td>
+                                <td>{{datas.bus_schedule.deptime}}</td>
+                                <td>{{datas.bus_schedule.arrivaltime}}</td>
+                            </tr>
+                            <tr>
+                                <th>No. of Adult</th>
+                                <th>No. of Child</th>
+                                <th>Total Amount</th>
+                            </tr>
+                            <tr>
+                                <td>{{adult}}</td>
+                                <td>{{child}}</td>
+                                <td>{{total}}</td>
+                            </tr>
+                            <tr>
+                                <th>
+                                    <input type="hidden" name=""id="totamnt" value="{{total}}" ><input type="hidden" id="adl"value="{{adult}}"><input type="hidden" id="chl"value="{{child}}">
+                                </th>
+                                <th><input type="hidden" id="pas" value="{{pas}}"><input type="hidden" id="seatid" value="{{datas.seatid}}"></th>
+                                    <th></th>
+                            </tr>
+                        </table>
+                        <center>
+                            <table >
+                                <tr>                                  
+                                        <th></th>
+                                        <th>
+                                            <div id="demo1">
+                                                <button type="submit" class="btn btn-success" onclick="confirmation()">Confirm</button>
+                                                <button class="btn btn-danger">Cancel</button>                                          
+                                        </div>
+                                        </th>
+                                        <th></th>
+                                </tr>
+                            </table>
+    
+                        </center>
+                    </section>
+            </div>
+         </div>	
+         
+        </div>
+    </section>
+</section>
+

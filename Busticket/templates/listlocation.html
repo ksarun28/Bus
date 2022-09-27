@@ -1,0 +1,33 @@
+{% extends 'staffhome.html' %}
+
+{% block content %}
+
+<section id="main-content" style="min-height: 93vh">
+    <section class="wrapper">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="content-panel" style="padding: 10px">                    
+                    <section id="unseen">
+                        <table class="table table-bordered table-striped table-condensed" style="width:100%">
+                            <tr>
+                                <th>Sl:No</th>
+                                <th>District</th>
+                                <th>Location</th>
+                            </tr>
+                            {% for d in loc %}
+                            <tr>
+                                <td>{{forloop.counter}}</td>
+                                <td>{{d.lname}}</td>
+                                <td>{{d.district.dname}}</td>
+                            </tr>
+                            {% endfor %}						
+    
+                        </table>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </section>
+</section>
+
+{% endblock content %}

@@ -1,0 +1,138 @@
+{% extends 'adminhome.html' %}
+
+{% block content %}
+<style>
+    input,select{
+        width: 100%;
+        border: 1px solid rgb(204, 187, 187);
+        border-radius: 4px;
+        background-color: lightblue;
+        padding: 10px;
+    }
+    button{
+        border: none;
+        background-color: rgb(89, 35, 215);
+        font-size: 20px;
+        border-radius: 4px;
+        font-weight: bold;
+        padding: 10px;
+    }
+    label{
+        background-color:black;
+        width: 70%;
+        padding: 10px;
+        border-radius: 4px;
+        font-size: 20px;
+    }
+    .card-title{
+        background-color: rgb(118, 120, 115);
+    }
+</style>
+<section id="main-content" style="min-height: 93vh">
+<section class="wrapper">
+
+    <div class="row mt-5 "style="background-image: url(static/images/busbg.jpg); background-size:cover;background-repeat:no-repeat;">
+    <div class="col-md-6 ml-auto mr-auto ">
+        <div class="card px-3 bg-transparent border-0">
+            <div class="card-title text-center text-white">
+                <h2>STAFF REGISTRATION</h2>
+            </div>
+            <div class="card-body">
+                <form action="{% url 'staffreg' %}" method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="row text-white m-1">
+                        <div class="col-md-6 ">
+                            <label for="fname">Name</label>
+                        </div>
+                        <div class="col-md-6 ">
+                            <input type="text" name="fname" id="fname">
+                        </div>
+                    </div>
+                    <div class="row text-white m-1">
+
+                        <div class="col-md-6 ">
+                            <label for="">Username</label>
+                        </div>
+                        <div class="col-md-6 ">
+                            <input type="text" name="username" id="">
+                        </div>
+                    </div>
+                    <div class="row text-white m-1">
+
+                        <div class="col-md-6 ">
+                            <label for="">Password</label>
+                        </div>
+                        <div class="col-md-6 ">
+                            <input type="password" name="password" id="">
+                        </div>
+                        </div>
+
+                        <div class="row text-white m-1">
+
+                        <div class="col-md-6 ">
+                            <label for="">DOB</label>
+                        </div>
+                        <div class="col-md-6 ">
+                            <input type="date" name="dob" id="">
+                        </div>
+                        </div>
+                        <div class="row text-white m-1">
+
+                        <div class="col-md-6 ">
+                            <label for="">Phone</label>
+                        </div>
+                        <div class="col-md-6 ">
+                            <input type="tel" name="phone" id="">
+                        </div>
+                        </div>
+                        <div class="row text-white m-1">
+                        <div class="col-md-6 ">
+                            <label for="">Email</label>
+                        </div>
+                        <div class="col-md-6 ">
+                            <input type="email" name="email" id="">
+                        </div>
+                    </div>
+
+                    <div class="row text-white m-1">
+                        <div class="col-md-6 ">
+                            <label for="address">Address</label>
+                        </div>
+                        <div class="col-md-6 ">
+                            <input type="text" name="address" id="">
+                        </div>
+                    </div>
+                    <div class="row text-white m-1">
+                        <div class="col-md-6 ">
+                            <label for="">Gender</label>
+                        </div>
+                        <div class="col-md-6 ">
+                            <select name="gender" id="">
+                                <option value="">Select Gender</option>
+                                <option value="male">Male</option>
+                                <option value="female">Female</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row text-white m-1">
+                        <div class="col-md-6 ">
+                            <label for="address">Image</label>
+                        </div>
+                        <div class="col-md-6 ">
+                            <input type="file" name="img" id="">
+                        </div>
+                    </div>
+                    <div class="text-center">
+                        <button type="submit" >Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    </div>
+
+    </section>
+    </section>  
+    {% endblock content %}
+    

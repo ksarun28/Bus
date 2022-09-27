@@ -1,0 +1,42 @@
+{% extends 'staffhome.html' %}
+
+{% block content %}
+
+
+<section id="main-content" style="min-height: 93vh">
+    <section class="wrapper">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="content-panel" style="padding: 10px">                    
+                    <section id="unseen">
+                        <table class="table table-bordered table-striped table-condensed" style="width:100%">
+                            <thead>
+                            <tr>
+                            <th>Sl:No</th>
+                            <th>Bus Number</th>
+                            <th>Bus Type</th>
+                            <th>Seats</th>
+    
+                            </tr>
+                            </thead>
+                            <tbody>
+                        
+                            {% for d in bus %}
+                            <tr>
+                                <td>{{forloop.counter}}</td>
+                                <td>{{d.bno}}</td>
+                                <td>{{d.btype}}</td>
+                                <td>{{d.seats}}</td>
+                            </tr>
+                            {% endfor %}						
+                          </tbody>
+                        </table>
+                            </section>
+                </div>
+            </div>
+        </div>
+    </section>
+</section>
+
+
+{% endblock content %}

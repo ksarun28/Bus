@@ -1,0 +1,51 @@
+{% extends 'userhome.html' %}
+
+
+{% block content %}
+<center>
+    <div class="row">
+        <div class="clo-md-12">
+            <table class="table table-striped">
+                <tr>
+                    <th>Name</th>
+                    <td>{{user.fname}}</td>
+                    <th>Date</th>
+                    <td>{{seat.schedule_date}}</td>
+                </tr>
+                <tr>
+                    <th>From </th>
+                    <th>Departure</th>
+                    <th>To</th>
+                    <th>Arrival</th>
+                </tr>
+                <tr>
+                    <th>{{seat.bus_schedule.route.fromlocation}}</th>
+                    <th>{{seat.bus_schedule.deptime}}</th>
+                    <th>{{seat.bus_schedule.route.tolocation}}</th>
+                    <th>{{seat.bus_schedule.arrivaltime}}</th>
+                </tr>
+                <tr>
+                    <th>Passengers</th>
+                    <th>Adult</th>
+                    <th>Child</th>
+                    <th>Total Amount</th>
+                </tr>
+                <tr>
+                    <th>{{pas}}</th>
+                    <th>{{adult}}</th>
+                    <th>{{child}}</th>
+                    <th>{{total}}</th>
+                </tr>
+                <tr>
+                    <th></th>
+                    <th><a href="{% url 'userhome'  %}"><button type="submit" class="btn btn-danger">Return</button></a></th>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </table>
+        </div>
+    </div>
+    
+</center>
+{% endblock content %}
+    

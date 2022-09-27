@@ -1,0 +1,43 @@
+{% extends 'userhome.html' %}
+{% block content %}
+<section id="main-content" style="min-height: 93vh">
+    <section class="wrapper">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="content-panel" style="padding: 10px">                    
+                    <section id="unseen">
+                        <form action="" method="post" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            <table class="table table-bordered table-striped table-condensed" style="width:100%">
+                                <tr>
+                                    <th>Name</th>
+                                    <td><input type="text" value="{{user.fname|title}}"name=fname></td>
+                                </tr>
+                                <tr>
+                                    <th>Email</th>
+                                    <td><input type="email" name="email" value="{{user.email}}"></td>
+                                </tr>
+                                <tr>
+                                    <th>Dob</th>
+                                    <td><input type="date" value="{{user.dob}}" name="dob"></td>
+                                </tr>
+                                <tr>
+                                    <th>Phone</th>
+                                    <td><input type="number" name="phone" value="{{user.phone}}"></td>
+                                </tr>
+                                <tr>
+                                    <th></th>
+                                    <td><button type="submit">Update</button></td>
+                                </tr>
+                              </table>
+        
+                        </form>
+                      </section>
+                    </div>
+            </div>
+        </div>
+    </section>
+</section>
+
+
+{% endblock content %}

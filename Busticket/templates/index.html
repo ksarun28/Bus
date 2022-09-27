@@ -1,0 +1,322 @@
+{% load static %}
+<!DOCTYPE html>
+	<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Bus Ticket Booking</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="Free HTML5 Template by FREEHTML5.CO" />
+	<meta name="keywords" content="free html5, free template, free bootstrap, html5, css3, mobile first, responsive" />
+	<meta name="author" content="FREEHTML5.CO" />
+	<meta property="og:title" content=""/>
+	<meta property="og:image" content=""/>
+	<meta property="og:url" content=""/>
+	<meta property="og:site_name" content=""/>
+	<meta property="og:description" content=""/>
+	<meta name="twitter:title" content="" />
+	<meta name="twitter:image" content="" />
+	<meta name="twitter:url" content="" />
+	<meta name="twitter:card" content="" />
+
+	<link rel="shortcut icon" href="favicon.ico">
+
+	<link href='http://fonts.googleapis.com/css?family=Roboto:400,300,100,500' rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+	
+	<link rel="stylesheet" href="{% static 'css/animate.css' %}">
+	<link rel="stylesheet" href="{% static 'css/icomoon.css' %}">
+	<link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}">
+	<link rel="stylesheet" href="{% static 'css/owl.theme.default.min.css' %}">
+	<link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}">
+	<link rel="stylesheet" href="{% static 'css/style.css' %}">
+	<script src="{% static 'js/modernizr-2.6.2.min.js' %}"></script>
+
+	</head>
+	<body style="background-color:#FBB040">
+		
+	<header id="fh5co-header" role="banner" >
+		<nav class="navbar navbar-default" role="navigation" style="background-color:#FBB040">
+			<div class="container-fluid">
+				<div class="navbar-header" style="width:250px" > 
+				<!-- Mobile Toggle Menu Button -->
+				
+				<a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle" data-toggle="collapse" data-target="#fh5co-navbar" aria-expanded="false" aria-controls="navbar"><i></i></a>
+				<a class="navbar-brand" href="{% url 'index' %}">Bus Ticket Booking System </a>
+				</div>
+				<div id="fh5co-navbar" class="navbar-collapse collapse">
+					<ul class="nav navbar-nav navbar-right">
+						<li class="active"><a href="" ><span><b>Home </b><span class="border"></span></span></a></li>
+						<li><a href="#fh5co-products"><span><b> Destination</b> <span class="border"></span></span></a></li>
+						<li><a href="#fh5co-footer"><span><b>Contact Us</b> <span class="border"></span></span></a></li>
+						<li><a href="{% url 'login' %}"><span><b>Login</b><span class="border"></span></span></a></li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+	</header>
+	<!-- END .header -->
+	
+	<div class="fh5co-slider">
+		<div class="owl-carousel owl-carousel-fullwidth">
+		    <div class="item" style="background-image:url(static/images/slide_1.jpg)">
+		    	<div class="fh5co-overlay"></div>
+		    	<div class="container">
+		    		<div class="row">
+		    			<div class="col-md-8 col-md-offset-2">
+			    			<div class="fh5co-owl-text-wrap">
+						    	<div class="fh5co-owl-text text-center to-animate">
+						    		<h1 class="fh5co-lead"> Let's Make Your Best Trip Ever</h1>
+									<h2 class="fh5co-sub-lead"> “There are no foreign lands. It is the traveler only who is foreign” – Robert Louis Stevenson</h2>
+						    	</div>
+						    </div>
+					    </div>
+		    		</div>
+		    	</div>
+		    </div>
+		    <div class="item" style="background-image:url(static/images/slide_2.jpg)">
+		    	<div class="fh5co-overlay"></div>
+		    	<div class="container">
+		    		<div class="row">
+		    			<div class="col-md-8 col-md-offset-2">
+			    			<div class="fh5co-owl-text-wrap">
+						    	<div class="fh5co-owl-text text-center to-animate">
+						    		<h1 class="fh5co-lead">A Digital Studio</h1>
+									<h2 class="fh5co-sub-lead">Booster is a free responsive HTML5 template using bootstrap released under Creative Commons 3.0. Lovely crafted by <a href="#">FREEHTML5.co</a></h2>
+						    	</div>
+						    </div>
+					    </div>
+		    		</div>
+		    	</div>
+		    </div>
+		    <div class="item" style="background-image:url(static/images/slide_3.jpg)">
+		    	<div class="fh5co-overlay"></div>
+		    	<div class="container">
+		    		<div class="row">
+		    			<div class="col-md-8 col-md-offset-2">
+			    			<div class="fh5co-owl-text-wrap">
+						    	<div class="fh5co-owl-text text-center to-animate">
+						    		<h1 class="fh5co-lead">Branding, UX under in one roof</h1>
+									<h2 class="fh5co-sub-lead">Booster is a free responsive HTML5 template using bootstrap released under Creative Commons 3.0. Lovely crafted by <a href="#">FREEHTML5.co</a></h2>
+						    	</div>
+						    </div>
+					    </div>
+		    		</div>
+		    	</div>
+		    </div>
+		    <div class="item" style="background-image:url(static/images/slide_4.jpg)">
+		    	<div class="fh5co-overlay"></div>
+		    	<div class="container">
+		    		<div class="row">
+		    			<div class="col-md-8 col-md-offset-2">
+			    			<div class="fh5co-owl-text-wrap">
+						    	<div class="fh5co-owl-text text-center to-animate">
+						    		<h1 class="fh5co-lead">Creative Folks</h1>
+									<h2 class="fh5co-sub-lead">Booster is a free responsive HTML5 template using bootstrap released under Creative Commons 3.0. Lovely crafted by <a href="#">FREEHTML5.co</a></h2>
+						    	</div>
+						    </div>
+					    </div>
+		    		</div>
+		    	</div>
+		    </div>
+		</div>
+	</div>	
+	<div id="fh5co-main" >
+		<!-- Features -->
+
+		<div id="fh5co-features" style="background-color:white">
+			<div class="container">
+				<div class="row text-center">
+					<div class="col-md-8 col-md-offset-2">
+						<h2 class="fh5co-section-lead">Key Features</h2>
+						<h3 class="fh5co-section-sub-lead">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</h3>
+					</div>
+					<div class="fh5co-spacer fh5co-spacer-md"></div>
+				</div>
+				<div class="row">
+					<div class="col-md-6 col-sm-6 fh5co-feature-border">
+						 
+						<div class="fh5co-feature no-border">
+							<div class="fh5co-feature-icon to-animate">
+								<i class="icon-head"></i>
+							</div>
+							<div class="fh5co-feature-text">
+								<h3>User Satisfaction</h3>
+								<p>Far far away, behind the word mountains, far from the countries Vokalia.</p>
+								<p><a href="#">Read more</a></p>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-6 col-sm-6">
+						 
+						<div class="fh5co-feature no-border">
+							<div class="fh5co-feature-icon to-animate">
+								<i class="icon-clock2"></i>
+							</div>
+							<div class="fh5co-feature-text">
+								<h3>24/7 Support</h3>
+								<p>Far far away, behind the word mountains, far from the countries Vokalia.</p>
+								<p><a href="#">Read more</a></p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- Features -->
+
+
+		<div class="fh5co-spacer fh5co-spacer-lg"></div>		
+		<!-- Products -->
+		<div class="container" id="fh5co-products" >
+			<div class="row text-left">
+				<div class="col-md-8">
+					<h2 class="fh5co-section-lead">Destinations</h2>
+					<h3 class="fh5co-section-sub-lead">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</h3>
+				</div>
+				<div class="fh5co-spacer fh5co-spacer-md"></div>
+			</div>
+			<div class="row">
+				<div class="col-md-3 col-sm-6 col-xs-6 col-xxs-12 fh5co-mb30">
+					<div class="fh5co-product">
+						<img src="{% static 'images/alp.jpg' %}" alt="FREEHTML5.co Free HTML5 Template Bootstrap" class="img-responsive img-rounded to-animate">
+						<h4>Lorem ipsum</h4>
+						<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+						<p><a href="#">Read more</a></p>
+					</div>
+				</div>
+				<div class="col-md-3 col-sm-6 col-xs-6 col-xxs-12 fh5co-mb30">
+					<div class="fh5co-product">
+						<img src="{% static 'images/kochi.jpg' %}" alt="FREEHTML5.co Free HTML5 Template Bootstrap" class="img-responsive img-rounded to-animate">
+						<h4>Architecto nihil</h4>
+						<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+						<p><a href="#">Read more</a></p>
+					</div>
+				</div>
+				<div class="visible-sm-block visible-xs-block clearfix"></div>
+				<div class="col-md-3 col-sm-6 col-xs-6 col-xxs-12 fh5co-mb30">
+					<div class="fh5co-product">
+						<img src="{% static 'images/m.jpg' %}" alt="FREEHTML5.co Free HTML5 Template Bootstrap" class="img-responsive img-rounded to-animate">
+						<h4>Animi earum</h4>
+						<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+						<p><a href="#">Read more</a></p>
+					</div>
+				</div>
+				<div class="col-md-3 col-sm-6 col-xs-6 col-xxs-12 fh5co-mb30">
+					<div class="fh5co-product">
+						<img src="{% static 'images/t.jpg' %}" alt="FREEHTML5.co Free HTML5 Template Bootstrap" class="img-responsive img-rounded to-animate">
+						<h4>Recusandae iste</h4>
+						<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+						<p><a href="#">Read more</a></p>
+					</div>
+				</div>
+				
+			</div>
+		</div>
+		<!-- Products -->
+		<div class="fh5co-spacer fh5co-spacer-lg"></div>
+
+		 
+
+		 
+
+	</div>
+
+	<footer id="fh5co-footer" style="background-color:white">
+		
+		<div class="container">
+			<div class="row">
+				<div class="col-md-6 col-sm-6">
+					<div class="fh5co-footer-widget">
+						<h2 class="fh5co-footer-logo">Booster</h2>
+						<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
+					</div>
+					<div class="fh5co-footer-widget">
+						<ul class="fh5co-social">
+							<li><a href="#"><i class="icon-facebook"></i></a></li>
+							<li><a href="#"><i class="icon-twitter"></i></a></li>
+							<li><a href="#"><i class="icon-instagram"></i></a></li>
+							<li><a href="#"><i class="icon-linkedin"></i></a></li>
+							<li><a href="#"><i class="icon-youtube"></i></a></li>
+						</ul>
+					</div>
+				</div>
+
+				<div class="col-md-2 col-sm-6">
+					<div class="fh5co-footer-widget top-level">
+						<h4 class="fh5co-footer-lead ">Company</h4>
+						<ul>
+							<li><a href="#">About</a></li>
+							<li><a href="#">Contact</a></li>
+							<li><a href="#">News</a></li>
+							<li><a href="#">Support</a></li>
+							<li><a href="#">Career</a></li>
+						</ul>
+					</div>
+				</div>
+				
+				<div class="visible-sm-block clearfix"></div>
+
+				<div class="col-md-2 col-sm-6">
+					<div class="fh5co-footer-widget top-level">
+						<h4 class="fh5co-footer-lead">Features</h4>
+						<ul class="fh5co-list-check">
+							<li><a href="#">Lorem ipsum dolor.</a></li>
+							<li><a href="#">Ipsum mollitia dolore.</a></li>
+							<li><a href="#">Eius similique in.</a></li>
+							<li><a href="#">Aspernatur similique nesciunt.</a></li>
+							<li><a href="#">Laboriosam ad commodi.</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-md-2 col-sm-6">
+					<div class="fh5co-footer-widget top-level">
+						<h4 class="fh5co-footer-lead ">Products</h4>
+						<ul class="fh5co-list-check">
+							<li><a href="#">Lorem ipsum dolor.</a></li>
+							<li><a href="#">Ipsum mollitia dolore.</a></li>
+							<li><a href="#">Eius similique in.</a></li>
+							<li><a href="#">Aspernatur similique nesciunt.</a></li>
+							<li><a href="#">Laboriosam ad commodi.</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+
+			<div class="row fh5co-row-padded fh5co-copyright">
+				<div class="col-md-5">
+					<p><small>&copy; Booster Free HTML5 Template. All Rights Reserved. <br>Designed by: <a href="http://freehtml5.co/" target="_blank">FREEHTML5.co</a> | Images by: <a href="http://deathtothestockphoto.com/" target="_blank">DeathToTheStockPhoto</a> </small></p>
+				</div>
+			</div>
+		</div>
+
+	</footer>
+
+<script>
+  function preventBack(){window.history.forward();}
+  setTimeout("preventBack()", 0);
+  window.onunload=function(){null};
+</script>
+
+
+
+
+
+
+	<!-- jQuery -->
+	<script src="{% static 'js/jquery.min.js' %}"></script>
+	<!-- jQuery Easing -->
+	<script src="{% static 'js/jquery.easing.1.3.js' %}"></script>
+	<!-- Bootstrap -->
+	<script src="{% static 'js/bootstrap.min.js' %}"></script>
+	<!-- Owl carousel -->
+	<script src="{% static 'js/owl.carousel.min.js' %}"></script>
+	<!-- Waypoints -->
+	<script src="{% static 'js/jquery.waypoints.min.js' %}"></script>
+	<!-- Magnific Popup -->
+	<script src="{% static 'js/jquery.magnific-popup.min.js' %}"></script>
+	<!-- Main JS -->
+	<script src="{% static 'js/main.js' %}"></script>
+
+	
+	</body>
+</html>

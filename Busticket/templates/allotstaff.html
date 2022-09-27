@@ -1,0 +1,110 @@
+{% extends 'adminhome.html' %}
+
+
+{% block content %}
+
+<section id="main-content" style="min-height: 93vh">
+    <section class="wrapper">
+        <h3>Ticket Management</h3>
+        
+        <!-- BASIC FORM ELELEMNTS -->
+        <div class="row mt"> 
+            <div class="col-lg-3">
+            <div class="form-panel">
+                <form class="form-horizontal style-form" method="post" name="myForm" enctype="multipart/form-data" >
+                 {% csrf_token %}
+                <div class="form-group" >
+                    <label class="col-sm-12 control-label">Staff Allocation</label>
+                    <div class="col-sm-12">
+                        <select name="bsch" id="" class="form-control"  required>
+                            <option >Bus Schedule</option>
+                            {% for d in bus %}
+                            <option value="{{d.bsc_id}}">{{d.bus.bno}}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group" >
+                    <label class="col-sm-12 control-label">Adult Rate</label>
+                    <div class="col-sm-12">
+                        <select name="scdate" id="" class="form-control"  required>
+                            <option >Schedule date</option>
+                            {% for d in seat %}
+                            <option value="{{d.seatid}}">{{d.schedule_date}}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group" >
+                    <label class="col-sm-12 control-label">Child Rate</label>
+                    <div class="col-sm-12">
+                        <select name="staff" id="" class="form-control"  required>
+                            <option >Staff</option>
+                            {% for d in staff %}
+                            <option value="{{d.sid}}">{{d.fname}}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group" >
+                    <div class="col-sm-12">
+                        <button  type="submit" name="submit" class="btn btn-success">Submit</button>
+                    </div>
+                </div>
+                   </form>
+            </div>
+            </div>	
+            
+            
+
+
+        <div class="col-lg-9">
+                            <div class="content-panel" style="padding: 10px">
+                     
+                    <section id="unseen">
+                      <table class="table table-bordered table-striped table-condensed" style="width:100%">
+                        <thead>
+                        <tr>
+                        <th>Sl:No</th>
+                        <th>Bus</th>
+                        <th>From</th>
+                        <th>To</th>
+                        <th> Schedule Date</th>
+                        <th>Duty Staff</th>
+                        <th>Status</th>
+                        <th> Action</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                    
+                        {% for d in data %}
+                        <tr>
+                            <td>{{forloop.counter}}</td>
+                            <td>{{d.bus_schedule.bus.bno}}</td>
+                            <td>{{d.bus_schedule.route.fromlocation}}</td>
+                            <td>{{d.bus_schedule.route.tolocation}}</td>
+                            <td>{{d.schedule_date.schedule_date}}</td>
+                            <td>{{d.staff.fname}}</td>
+                            <td>{{d.status}}</td>
+                            <td><form action="{% url 'deletelocation' %}" method="post">
+                                {% csrf_token %}
+                                <input type="hidden" name="seatid" value="{{d.seatid}}">
+                                <button type="submit" class="btn btn-success">Delete</button>
+                             </form>
+                            </td>
+                        </tr>
+                        {% endfor %}						
+                      </tbody>
+                    </table>
+                    </section>
+            </div>
+
+         </div>			 
+
+        </div>
+    </section>
+</section>
+
+    
+{% endblock content %}
+    

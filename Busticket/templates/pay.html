@@ -1,0 +1,59 @@
+<section id="main-content" >
+    <section class="wrapper">
+        <a data-toggle="modal" data-target="#comp" href="#" style="color: rgb(28, 2, 2);">Click here to Complete the payment </a>
+    </section>
+</section>
+<section id="main-content" >
+        <section class="wrapper">
+            <center>
+                <div class="modal fade" id="comp" role="dialog" >
+                    <div class="modal-dialog modal-lg">
+                   <div class="modal-content">
+                         <div class="modal-header">
+                       <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+                       <h4 class="modal-title custom_align" id="Heading">Payment Portal</h4>
+                     </div>
+                        <div class="modal-body">
+                         <form class="form-horizontal" method="post" action="{% url 'paycomplete' %}">
+                           {% csrf_token %}  
+                           <table class="table  table-condensed" >
+                            <tr>
+                                <th>Card Number</th>
+                                <td><input type="number" name="card" ></td>
+                            </tr>
+                            <tr>
+                                <th>Expiry</th>
+                                <td><input type="text" name="expiry"  placeholder="mm/yy"></td>
+                            </tr>
+                            <tr>
+                                <th>CVV</th>
+                                <td><input type="number" name="cvv"max="999" min="100"></td>
+                            </tr>
+                            <tr>
+                                <th>Amount</th>
+                                <td><input type="number" name="total" id="" readonly value="{{tot}}"></td>
+                                <input type="hidden" name="pas" value="{{pas}}">
+                                <input type="hidden" name="seat" value="{{seat}}">
+                            </tr>
+                            <tr>
+                                <th><input type="hidden" name="adult" value="{{adult}}">
+                                    <input type="hidden" name="child" value="{{child}}"></th>
+                                <td><input type="submit" value="Pay" ></td>
+                            
+                            </tr>
+                        
+                        </table>            
+            
+                        </form>
+                         </div>
+                        
+                        <div class="modal-footer ">
+                       </div> 
+                       </div>
+            </center>
+        </section>
+    </section>
+    
+    
+</body>
+</html>

@@ -1,0 +1,42 @@
+{% extends 'userhome.html' %}
+
+{% block content %}
+
+<section id="main-content" style="min-height: 93vh">
+    <section class="wrapper">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="content-panel" style="padding: 10px">                    
+                    <section id="unseen">
+                        <table class="table table-bordered table-striped table-condensed" style="width:100%">
+                            <tr>
+                                <th>Date</th>
+                                <th>From</th>
+                                <th>To</th>
+                                <th>Adult</th>
+                                <th>Child</th>
+                                <th>Amount</th>
+                            </tr>
+                            
+                            {% for i in ticket %}
+                                <tr>
+                                    <th>{{i.date.schedule_date}}</th>
+                                    <th>{{i.date.bus_schedule.route.fromlocation}}</th>
+                                    <th>{{i.date.bus_schedule.route.tolocation}}</th>
+                                    <th>{{i.adult}}</th>
+                                    <th>{{i.child}}</th>
+                                    <th>{{i.tot}}</th>
+                                </tr>
+                            {% endfor %}
+                                
+                        </table>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </section>
+</section>
+
+
+{% endblock content %}
+    

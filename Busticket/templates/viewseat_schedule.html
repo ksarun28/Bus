@@ -1,0 +1,51 @@
+{% extends 'staffhome.html' %}
+
+{% block content %}
+
+
+<section id="main-content" style="min-height: 93vh">
+    <section class="wrapper">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="content-panel" style="padding: 10px">                    
+                    <section id="unseen">
+                        <table class="table table-bordered table-striped table-condensed" style="width:100%">
+                            <thead>
+                            <tr>
+                            <th>Sl:No</th>
+                            <th>Bus</th>
+                            <th>From</th>
+                            <th>Departure</th>
+                            <th>To</th>
+                            <th>Arrival</th>
+                            <th>Schedule Date</th>
+                            <th>Bus Type</th>
+                            <th>Available Seat</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                        
+                            {% for d in data %}
+                            <tr>
+                                <td>{{forloop.counter}}</td>
+                                <td>{{d.bus_schedule.bus.bno}}</td>
+                                <td>{{d.bus_schedule.route.fromlocation}}</td>
+                                <td>{{d.bus_schedule.deptime}}</td>
+                                <td>{{d.bus_schedule.route.tolocation}}</td>
+                                <td>{{d.bus_schedule.arrivaltime}}</td>
+                                <td>{{d.schedule_date}}</td>
+                                <td>{{d.bus_schedule.bus.btype}}</td>
+                                <td>{{d.available_seat}}</td>
+                            </tr>
+                            {% endfor %}						
+                          </tbody>
+                        </table>
+                                    </section>
+                </div>
+            </div>
+        </div>
+    </section>
+</section>
+
+
+{% endblock content %}

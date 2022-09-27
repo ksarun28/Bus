@@ -1,0 +1,48 @@
+<section id="main-content" >
+    <section class="wrapper">
+        <h3>Your Saerch Result is here.........</h3>
+        
+        <!-- BASIC FORM ELELEMNTS -->
+        <div class="row mt"> 
+            <div class="col-lg-12">
+                <div class="content-panel" style="padding: 10px">                    
+                    <section id="unseen">
+                      <table class="table table-bordered table-striped table-condensed" style="width:100%">
+                        <thead>
+                        <tr>
+                        <th>Bus</th>
+                        <th>Bus Type</th>
+                        <th>Adult Rate</th>
+                        <th>Child Rate</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                    
+                        <tr>
+                            <td>{{data.bustype.btype}}</td>
+                            <td>{{data.bustype.bno}}</td>
+                            <td>{{data.adult}}</td>
+                            <td>{{data.child}}</td>
+                             <td>
+                                <input type="hidden" name="bus" id="bus" value="{{data.bustype.bid}}">
+                                <input type="hidden" name="adult" id="adlt" value="{{data.adult}}">
+                                <input type="hidden" name="child" id="chld" value="{{data.child}}">
+                             </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    </section>
+            </div>
+         </div>	
+        <div class="col-lg-12">
+            <div class="content-panel" style="padding: 10px">   
+                <input type="number" min="1" max="10" id="tot"   required>
+                <input type="number" min="1" max="10" id="ad"    required>
+                <input type="number" min="1" max="10" id="ch"   required>
+                <button type="button" class="btn btn-success" onclick="submit()">Continue</button>
+            </div>
+        </div>  
+        </div>
+    </section>
+</section>
+

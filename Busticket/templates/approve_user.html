@@ -1,0 +1,158 @@
+{% extends 'adminhome.html' %}
+
+{% block content %}
+
+<section id="main-content" style="min-height: 93vh">
+    <section class="wrapper">
+        <h3>Approve User</h3>
+            <div class="row mt">
+                <div class="col-lg-10">
+                <div class="content-panel" style="padding: 10px 10px;">
+                     
+                    <section id="unseen">
+                      <table class="table table-bordered table-striped table-condensed" style="width:100%;">
+                        <thead>
+                        <tr>
+                        <th>Sl:No</th>
+                        <th>Name</th>
+                        <th>DOB</th>
+                        
+                        <th>Email ID</th>
+                        <th>Contact number</th>
+                        <th>Action</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                          {% for u in user%}
+                        <tr>
+                            <td>{{forloop.counter}}</td>
+                            <td>{{u.fname}}</td>
+                            <td>{{u.dob}}</td>
+                            
+                            <td>{{u.email}}</td>
+                            <td>{{u.phone}}</td>
+                       <td><a class="btn btn-success" data-toggle="modal" data-target="#approve-{{u.uid}}" href="#">Approve / Reject</a>
+                              </td>
+  <div class="modal fade" id="approve-{{u.uid}}" role="dialog" >
+<div class="modal-dialog modal-lg">
+<div class="modal-content">
+    <div class="modal-header">
+  <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+  <h4 class="modal-title custom_align" id="Heading">Approve User</h4>
+</div>
+   <div class="modal-body">
+    <form class="form-horizontal" method="post" name="myForm" onsubmit="" action="{% url 'approve_user' %}">
+       {% csrf_token %}  
+   <input type="hidden" class="form-control"  value="{{u.uid}}"  name="uid"> 	 
+   <div class="box-content">
+  <div class="col-md-10 col-md-offset-2">
+  <div class="col-md-5">
+   <div class="form-group" >
+  <label for="">Name</label>
+  <input type="text" name="fname" class="form-control" value="{{u.fname}}" readonly required>
+  </div>
+  <div class="form-group">
+   <label for="">Phone Number</label>
+  <input type="text" class="form-control" name="phone" value="{{u.phone}}" readonly>
+  </div>
+  
+  </div>
+  <div class="col-md-5">
+      <div class="form-group">
+          <label for="">Email</label>
+         <input type="text" class="form-control" name="email" value="{{u.email}}" readonly>
+         </div>
+  </div>
+  </div>
+  <button  type="button" class="btn btn-success" ><a data-toggle="modal" data-target="#comp-{{u.uid}}" href="#" style="color: #fff;"><span class="glyphicon glyphicon-ok-sign"></span> Approve</a></button>
+  
+  <button name="del" type="button" class="btn btn-danger" ><a data-toggle="modal" data-target="#reject-{{u.uid}}" href="#"  style="color: #fff;"><span class="glyphicon glyphicon-remove" ></span> Reject</a></button>
+
+</div> 
+</form>
+</div>								
+</div>
+</div>
+</div>
+
+<!-----------------Approve Modal-->
+<div class="modal fade" id="comp-{{u.uid}}" role="dialog" >
+<div class="modal-dialog modal-lg">
+<div class="modal-content">
+    <div class="modal-header">
+  <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+  <h4 class="modal-title custom_align" id="Heading">Approve user</h4>
+</div>
+   <div class="modal-body">
+   <br>
+   <h3 class="modal-title custom_align" id="Heading" style="margin-left:200px;color:#555">Are you sure want to approve this user?</h3>
+   <br>
+    <form class="form-horizontal" method="post" action="">
+      {% csrf_token %}  
+     <input type="hidden" class="form-control"  value="{{u.uid}}"  name="uid"> 	 
+   <div class="box-content">
+    
+  <button name="edit" type="submit" class="btn btn-success" ><span class="glyphicon 
+  glyphicon-ok-sign"></span> Approve</button>
+<button type="reset" class="btn btn-default pull-right" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Cancel</button>
+                      </div>								
+</div>
+</form>
+   <div class="modal-footer ">
+  </div> 
+  </div>
+<!-- /.modal-content --> 
+</div>
+</div>
+
+
+<div class="modal fade" id="reject-{{d.user_id}}" role="dialog" >
+<div class="modal-dialog modal-lg">
+<div class="modal-content">
+    <div class="modal-header">
+  <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+  <h4 class="modal-title custom_align" id="Heading">Are you sure want to Reject staff</h4>
+</div>
+   <div class="modal-body">
+    <form class="form-horizontal" method="post" name="myForm" onsubmit="" action="">
+         {% csrf_token %}  
+  <input type="hidden" class="form-control"  value="{{u.email}}"  name="email"> 
+  <input type="hidden" class="form-control"  value="{{u.uid}}"  name="uid">		 
+   <div class="box-content">
+   <div class="col-md-12">
+      <div class="form-group" style="margin-left:50px;">
+                    
+                    </div>
+                              </div>
+                              <br><br><br>
+<button name="request" type="submit" class="btn btn-danger" ><span class="glyphicon 
+  glyphicon-ok-sign"></span> Reject</button>
+<button type="reset" class="btn btn-default pull-right" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Cancel</button>
+                          </div> 
+</div>								
+</div>
+
+</form>
+   <div class="modal-footer ">
+  
+</div> 
+  </div>
+<!-- /.modal-content --> 
+</div>
+               </tr>
+                          {% endfor %}							
+                      </tbody>
+                    </table>
+                    </section>
+            </div><!-- /content-panel -->
+         </div><!-- /col-lg-4 -->	
+        <div style="height:480px;">
+         
+      </section>
+  </section>
+
+
+{% endblock content %}
+
+
+

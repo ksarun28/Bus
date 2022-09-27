@@ -1,0 +1,39 @@
+{% extends 'staffhome.html' %}
+
+{% block content %}
+
+<section id="main-content" style="min-height: 93vh">
+    <section class="wrapper">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="content-panel" style="padding: 10px">                    
+                    <section id="unseen">
+                        <table class="table table-bordered table-striped table-condensed" style="width:100%">
+                            <thead>
+                            <tr>
+                            <th>Sl:No</th>
+                            <th>From</th>
+                            <th>Destination</th>
+                            <th>Map</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                        
+                            {% for d in rot %}
+                            <tr>
+                                <td>{{forloop.counter}}</td>
+                                <td>{{d.fromlocation}}</td>
+                                <td>{{d.tolocation}}</td>
+                                <td><img src="{{d.rmap.url}}" alt="" width="100px" height="100px"></td>
+                            </tr>
+                            {% endfor %}						
+                          </tbody>
+                        </table>
+                        </section>
+                </div>
+            </div>
+        </div>
+    </section>
+</section>
+
+{% endblock content %}

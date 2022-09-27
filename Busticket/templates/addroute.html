@@ -1,0 +1,97 @@
+{% extends 'adminhome.html' %}
+
+{% block content %}
+
+<section id="main-content" style="min-height: 93vh">
+    <section class="wrapper">
+        <h3>Route Management</h3>
+        
+        <!-- BASIC FORM ELELEMNTS -->
+        <div class="row "> 
+            <div class="col-lg-3">
+                <div class="form-panel">
+                    <form class="form-horizontal style-form" method="post" name="myForm" enctype="multipart/form-data" >
+                        {% csrf_token %}
+                            <div class="form-group" >
+                                <label class="col-sm-12 control-label">From</label>
+                                <div class="col-sm-12 p-1">
+                                    <select name="floc" id="" class="form-control" >
+                                        <option value="">From</option>
+                                        {% for d in loc %}
+                                        <option value="{{d.lname}}">{{d.lname|title}}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group" >
+                                <label class="col-sm-12 control-label"> Destination</label>
+                                <div class="col-sm-12 p-1">
+                                    <select name="tloc" id="" class="form-control" >
+                                        <option value="">To</option>
+                                        {% for d in loc %}
+                                        <option value="{{d.lname}}">{{d.lname|title}}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group" >
+                                <label class="col-sm-12 control-label"> Route Map</label>
+                                <div class="col-sm-12 p-1">
+                                    <input type="file" name="rmap" class="form-control" required>
+                                </div>
+                            </div>
+                            <div class="form-group" >
+                                <div class="col-sm-12">
+                                    <button  type="submit" name="submit" class="btn btn-dark">Submit</button>
+                                </div>
+                            </div>
+                        </form>
+                </div>
+            </div>			
+
+
+
+            <div class="col-lg-9">
+                <h3>Route</h3>
+                <div class="content-panel" style="padding: 10px">
+                     
+                    <section id="unseen">
+                      <table class="table table-bordered table-striped table-condensed" style="width:100%">
+                        <thead>
+                        <tr>
+                        <th>Sl:No</th>
+                        <th>From</th>
+                        <th>Destination</th>
+                        <th>Map</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                    
+                        {% for d in rot %}
+                        <tr>
+                            <td>{{forloop.counter}}</td>
+                            <td>{{d.fromlocation}}</td>
+                            <td>{{d.tolocation}}</td>
+                            <td><img src="{{d.rmap.url}}" alt="" width="100px" height="100px"></td>
+                            <td><form action="" method="post">
+                                {% csrf_token %}
+                                <input type="hidden" name="did" value="{{d.rid}}">
+                                <button type="submit" class="btn btn-success">Delete</button>
+                             </form></td>
+                        </tr>
+                        {% endfor %}						
+                      </tbody>
+                    </table>
+                    </section>
+            </div><!-- /content-panel -->
+
+
+
+            </div>			
+
+        </div>
+    </section>
+</section>
+    
+{% endblock content %}
+    

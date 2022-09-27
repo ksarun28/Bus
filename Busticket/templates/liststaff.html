@@ -1,0 +1,96 @@
+{% extends 'adminhome.html' %}
+{% block content %}
+
+<section id="main-content" style="min-height: 93vh">
+    <section class="wrapper">
+      <h3>Employee List</h3>
+      <div class="row">
+        <div class="col-lg-10">
+          <div class="content-panel" style="padding: 10px 10px;">
+  
+            <section id="unseen">
+              <form name="f1" method="post" action="">
+                {% csrf_token %}
+
+              </form>
+
+              <table class="table table-bordered table-striped table-condensed" style="width:100%;" style="width:100%;">
+                <thead>
+                  <tr>
+                    <th>Sl:No</th>                  
+                    <th>Name</th>
+                    <th>Gender</th>
+                    <th>Phone No</th>
+                    <th>Email Id</th>
+                    <th> DOB</th>
+                    <th> Image</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {% for s in staff %}
+                  <tr>
+                    <td>{{forloop.counter}}</td>
+                   
+                    <td>{{s.fname|title}}</td>
+                    
+                    <td>{{s.gender|title}}</td>
+                    <td>{{s.phone}}</td>
+                    <td>{{s.email}}</td>
+                    <td>{{s.dob}}</td>
+                    <td><img src="{{s.image.url}}" alt="" width="100px" height="100px"></td>
+
+                    <td><a class="btn btn-success" data-toggle="modal" data-target="#delete-{{s.sid}}"
+                        href="#">Delete</a>
+                    </td>
+                    <div class="modal fade" id="delete-{{s.sid}}" role="dialog">
+                      <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><span
+                                class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+                            <h4 class="modal-title custom_align" id="Heading">Delete Staff</h4>
+                          </div>
+                          <div class="modal-body">
+                            <br>
+                            <h3 class="modal-title custom_align" id="Heading" style="margin-left:200px;color:#e85c68">Are
+                              You Want Delete This Staff?</h3>
+                            <br>
+                            <form class="form-horizontal" method="post" name="myForm" onsubmit=""
+                              action="">
+                              {% csrf_token %}
+                              <input type="hidden" class="form-control" value="{{s.sid}}" name="sid">
+                              <div class="box-content">
+  
+                                <button name="delete" type="submit" class="btn btn-success"><span class="glyphicon 
+    glyphicon-ok-sign"></span>Submit</button>
+                                <button type="reset" class="btn btn-default pull-right" data-dismiss="modal"><span
+                                    class="glyphicon glyphicon-remove"></span>No</button>
+  
+                              </div>
+                          </div>
+  
+                          </form>
+                          <div class="modal-footer ">
+  
+                          </div>
+                        </div>
+                        <!-- /.modal-content -->
+                      </div>
+                    </div>
+  
+                  </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+            </section>
+          </div><!-- /content-panel -->
+        </div><!-- /col-lg-4 -->
+        <div style="height:480px;">
+        </div>
+      </div><!-- /row -->
+    </section>
+  </section>
+  
+
+{% endblock content %}
